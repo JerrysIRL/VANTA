@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{02dafbf9-849e-4dca-9f56-4f0ff69aa15f}">
+		<property name="name">
+			<value>Rock Crumble</value>
+		</property>
+		<relationship name="folder">
+			<destination>{3832ca70-2246-4f73-a052-59ed0d7bb21c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{660fe67b-79e8-4854-a4e1-972fb07b69cb}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{660fe67b-79e8-4854-a4e1-972fb07b69cb}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

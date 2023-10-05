@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c2e91f7c-2e1e-423d-96ee-dfc422ccf4a0}">
+		<property name="assetPath">
+			<value>Droplet 1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.57621315192743761</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f69999b3-3d06-4b42-aa35-27a4f59c451c}</destination>
+		</relationship>
+	</object>
+</objects>

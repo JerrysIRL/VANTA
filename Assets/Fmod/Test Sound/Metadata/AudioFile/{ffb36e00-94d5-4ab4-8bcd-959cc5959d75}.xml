@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ffb36e00-94d5-4ab4-8bcd-959cc5959d75}">
+		<property name="assetPath">
+			<value>rocks-6129.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.3600000000000003</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f69999b3-3d06-4b42-aa35-27a4f59c451c}</destination>
+		</relationship>
+	</object>
+</objects>

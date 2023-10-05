@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Glow
+  m_Shader: {fileID: 4800000, guid: 8a67770b63ad63a49bd5d28eceb6abb0, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Screentone_Map:
+        m_Texture: {fileID: 2800000, guid: 715679140d6e4c14aa2ed19a86107a9a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture0:
+        m_Texture: {fileID: 2800000, guid: 639d878678ccd17488f059e5882d14fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture1:
+        m_Texture: {fileID: 2800000, guid: 715679140d6e4c14aa2ed19a86107a9a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Albedo_Mult: 1.5
+    - _CameraFade_Distance: 0.88
+    - _CameraFade_Falloff: 2.38
+    - _Contrast: 0.4
+    - _Cutoff: 0.5
+    - _Gradient_Int: 1
+    - _Opacity: 0.658
+    - _PannerX_01: 0.183
+    - _PannerX_02: 0.093
+    - _PannerY_01: 0.098
+    - _PannerY_02: 0.218
+    - _Panner_StretchX: 0.1802055
+    - _Panner_StretchY: 1.51
+    - _Panner_TimeScale: 1
+    - _Screentone_Scale: 2.13
+    - _Screentone_Scale1: 15
+    - __dirty: 0
+    m_Colors:
+    - _Albedo: {r: 1, g: 1, b: 1, a: 0}
+  m_BuildTextureStacks: []

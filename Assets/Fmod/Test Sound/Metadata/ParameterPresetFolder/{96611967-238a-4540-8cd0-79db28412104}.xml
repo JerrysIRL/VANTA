@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPresetFolder" id="{96611967-238a-4540-8cd0-79db28412104}">
+		<property name="name">
+			<value>Footsteps</value>
+		</property>
+		<relationship name="folder">
+			<destination>{52e4481b-c8f5-4062-ab44-2bfa5bcfa284}</destination>
+		</relationship>
+	</object>
+</objects>

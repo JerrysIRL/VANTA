@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{5ba43eb3-05aa-4dfd-8aa2-b131cc7691b6}">
+		<property name="name">
+			<value>Wind</value>
+		</property>
+		<relationship name="folder">
+			<destination>{3832ca70-2246-4f73-a052-59ed0d7bb21c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{caf40045-3842-481d-ac7a-08d357fd55f5}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{caf40045-3842-481d-ac7a-08d357fd55f5}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

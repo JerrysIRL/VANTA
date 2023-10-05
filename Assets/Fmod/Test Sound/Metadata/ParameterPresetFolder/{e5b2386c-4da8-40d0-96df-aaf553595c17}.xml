@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPresetFolder" id="{e5b2386c-4da8-40d0-96df-aaf553595c17}">
+		<property name="name">
+			<value>Modular audio</value>
+		</property>
+		<relationship name="folder">
+			<destination>{b1a2fb7b-2d2a-4643-a747-2ad372f62514}</destination>
+		</relationship>
+	</object>
+</objects>

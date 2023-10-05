@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{646c4e4f-e944-4df2-8503-d2d736357759}">
+		<property name="name">
+			<value>WalkingOnMaterial</value>
+		</property>
+		<relationship name="folder">
+			<destination>{96611967-238a-4540-8cd0-79db28412104}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{755a47f9-89c5-4c7f-a2a8-d11173c83a64}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{755a47f9-89c5-4c7f-a2a8-d11173c83a64}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Stone</value>
+			<value>Wood</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

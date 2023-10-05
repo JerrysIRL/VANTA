@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4773e1c7-8f00-46d3-928a-0af2c88df462}">
+		<property name="assetPath">
+			<value>game/02_old_site/game_02_lantern_hit_04.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.51666666666666672</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f69999b3-3d06-4b42-aa35-27a4f59c451c}</destination>
+		</relationship>
+	</object>
+</objects>

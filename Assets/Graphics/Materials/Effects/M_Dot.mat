@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Dot
+  m_Shader: {fileID: 4800000, guid: 11e254615c9a0964dbed07773b1b657f, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Cloud:
+        m_Texture: {fileID: 2800000, guid: 639d878678ccd17488f059e5882d14fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cloud_Map:
+        m_Texture: {fileID: 2800000, guid: 639d878678ccd17488f059e5882d14fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 639faa2dbc8ce224590be7719c7be068, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_Map:
+        m_Texture: {fileID: 2800000, guid: e78ed0b182da7de43beef3dc844ab658, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: 639d878678ccd17488f059e5882d14fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample1:
+        m_Texture: {fileID: 2800000, guid: 639d878678ccd17488f059e5882d14fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Contrast: 1.5
+    - _Distort_Power: 0.1
+    - _PannerX_01: 1
+    - _PannerX_02: 0.75
+    - _PannerY_01: 0.25
+    - _PannerY_02: 1
+    - _Panner_TimeScale: 1
+    - _Power: 1
+    - __dirty: 0
+    m_Colors:
+    - _Albedo: {r: 0, g: 0, b: 0, a: 0}
+    - _Emissive: {r: 0, g: 0, b: 0, a: 0}
+    - _Time_Offset: {r: 1, g: 1, b: 0, a: 0}
+    - _Vector0: {r: -0.5, g: -1, b: 0, a: 0}
+  m_BuildTextureStacks: []

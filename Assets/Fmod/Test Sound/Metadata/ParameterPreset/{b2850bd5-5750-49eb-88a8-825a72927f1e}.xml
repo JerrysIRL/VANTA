@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{b2850bd5-5750-49eb-88a8-825a72927f1e}">
+		<property name="name">
+			<value>Layer3</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e5b2386c-4da8-40d0-96df-aaf553595c17}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{6e2f6b07-b121-458c-a47e-1ab2f362229d}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{6e2f6b07-b121-458c-a47e-1ab2f362229d}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>2</value>
+		</property>
+		<property name="seekSpeedDescending">
+			<value>0.5</value>
+		</property>
+		<property name="seekSpeedAsymmetric">
+			<value>true</value>
+		</property>
+	</object>
+</objects>

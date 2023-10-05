@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b24b98c9-a41b-44c8-a744-4983678cdfd6}">
+		<property name="assetPath">
+			<value>105 Modular Main background violin bass.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>68.570317460317455</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f69999b3-3d06-4b42-aa35-27a4f59c451c}</destination>
+		</relationship>
+	</object>
+</objects>

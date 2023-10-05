@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a19c536e-63f6-4d1a-a37a-a0a42164ed78}">
+		<property name="assetPath">
+			<value>footstep_concrete_001.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.10764172335600906</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f69999b3-3d06-4b42-aa35-27a4f59c451c}</destination>
+		</relationship>
+	</object>
+</objects>

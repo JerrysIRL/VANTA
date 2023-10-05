@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_ShadeTest
+  m_Shader: {fileID: 4800000, guid: fa5bf583b7cd02f418ad1c6e404ee03f, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoPattern_map:
+        m_Texture: {fileID: 2800000, guid: 3b9019faa2d1d0741bf2f6e6b902f4c1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlphaMask_Map:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissive_Map:
+        m_Texture: {fileID: 2800000, guid: 3b9019faa2d1d0741bf2f6e6b902f4c1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OpacityPattern_Map:
+        m_Texture: {fileID: 2800000, guid: e81a4b8e242927344ac4a2589c71ce6e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Screentone_Map:
+        m_Texture: {fileID: 2800000, guid: 715679140d6e4c14aa2ed19a86107a9a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture0:
+        m_Texture: {fileID: 2800000, guid: e81a4b8e242927344ac4a2589c71ce6e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Albedo_Scale: 1
+    - _Cutoff: 0.5
+    - _Emissive_Fade: 1
+    - _LightGradient_Inner: 5.59
+    - _LightGradient_Middle: 10
+    - _LightGradient_Outer: 54.15
+    - _OpacityScreentone_Scale: 10
+    - _Opacity_Fade: 0
+    - _OutlineDIstance: 2
+    - _OutlineWidth: 0.02
+    - _Pattern_Fade: 0.95
+    - _Screentone_Fade: 0
+    - _Screentone_Scale: 15
+    - __dirty: 0
+    - _wa: 0
+    m_Colors:
+    - _Color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 0}
+    - _Outline_Color: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0}
+    - _Screentone_Color: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 0}
+  m_BuildTextureStacks: []

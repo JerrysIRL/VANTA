@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{cedede58-43ad-4a4c-84ff-1dba0b022252}">
+		<property name="name">
+			<value>Droplets</value>
+		</property>
+		<relationship name="folder">
+			<destination>{3832ca70-2246-4f73-a052-59ed0d7bb21c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{6a71b67f-60cb-4fce-869e-882bf38e446e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{6a71b67f-60cb-4fce-869e-882bf38e446e}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
