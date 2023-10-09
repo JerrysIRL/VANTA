@@ -188,7 +188,7 @@ MonoBehaviour:
   Path: Assets/Fmod/Test Sound/Build/Desktop/ambiance.bank
   Name: ambiance
   StudioPath: bank:/ambiance
-  lastModified: 638127410519435265
+  lastModified: 638324706524454330
   FileSizes:
   - Name: Desktop
     Value: 2967680
@@ -440,7 +440,7 @@ MonoBehaviour:
   Path: Assets/Fmod/Test Sound/Build/Desktop/sfx.bank
   Name: sfx
   StudioPath: bank:/sfx
-  lastModified: 638127410538303781
+  lastModified: 638324706525696036
   FileSizes:
   - Name: Desktop
     Value: 1465664
@@ -812,7 +812,7 @@ MonoBehaviour:
   Path: Assets/Fmod/Test Sound/Build/Desktop/music.bank
   Name: music
   StudioPath: bank:/music
-  lastModified: 638127410537320983
+  lastModified: 638324706525610841
   FileSizes:
   - Name: Desktop
     Value: 18688320
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   Path: Assets/Fmod/Test Sound/Build/Desktop/Master Bank.strings.bank
   Name: Master Bank.strings
   StudioPath: bank:/Master Bank.strings
-  lastModified: 638127410519513679
+  lastModified: 638324706524279095
   FileSizes:
   - Name: Desktop
     Value: 3194
@@ -1828,7 +1828,7 @@ MonoBehaviour:
   - {fileID: 252740467473650658}
   StringsBanks:
   - {fileID: -3135038979908103121}
-  cacheTime: 638127410538383597
+  cacheTime: 638324706525696036
   cacheVersion: 131601
 --- !u!114 &9691270822996258
 MonoBehaviour:
@@ -1897,7 +1897,7 @@ MonoBehaviour:
   Path: Assets/Fmod/Test Sound/Build/Desktop/Master Bank.bank
   Name: Master Bank
   StudioPath: bank:/Master Bank
-  lastModified: 638127410519475165
+  lastModified: 638324706524279095
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -3293,7 +3293,7 @@ MonoBehaviour:
   Path: Assets/Fmod/Test Sound/Build/Desktop/ui.bank
   Name: ui
   StudioPath: bank:/ui
-  lastModified: 638127410538383597
+  lastModified: 638324706525696036
   FileSizes:
   - Name: Desktop
     Value: 494

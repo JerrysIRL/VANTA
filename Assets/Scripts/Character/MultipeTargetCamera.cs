@@ -10,7 +10,7 @@ public class MultipeTargetCamera : MonoBehaviour
     [SerializeField] private float minZoom = 30f; 
     [SerializeField] private float maxZoom = 100f;
     [SerializeField] private float zoomLimiter = 30f;
-    public Vector3 cameraOffset;
+    [SerializeField] Vector3 cameraOffset;
 
     public List<Transform> targets = new List<Transform>();
     private Vector3 _velocity;      // reference variable, just something SmoothDamp needs, dont remove
@@ -19,15 +19,14 @@ public class MultipeTargetCamera : MonoBehaviour
     private void Start()
     {
         _cam = Camera.main;
-        
     }
 
     void LateUpdate()
     {
-        if (targets.Count == 0)     // if no players are in the game, return
+        /*if (targets.Count == 0)     // if no players are in the game, return
         {
             return;
-        }
+        }*/
         MoveCamera();
         Zoom();
     }
@@ -73,10 +72,5 @@ public class MultipeTargetCamera : MonoBehaviour
         Bounds bounds = EncapsulateTargets();
 
         return bounds.center;
-    }
-
-    public void AddTargets(Transform t)
-    {
-        targets.Add(t);
     }
 }
