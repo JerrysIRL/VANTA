@@ -12,13 +12,7 @@ public class CamWallOpacity : MonoBehaviour
     private RaycastHit _hit;
     private HashSet<GameObject> _collisionStore = new HashSet<GameObject>();
     private RaycastHit[] _results = new RaycastHit[10];
-
-
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(transform.position, darkP.position);
-    }
+    
 
     private void FixedUpdate()
     {

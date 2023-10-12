@@ -47,15 +47,6 @@ public class BlackHole : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, _playerTakesDamage);
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _killZone);
-    }
-
     private void DistanceCheck()
     {
         Distance = Vector3.Distance(this.transform.position, _lightPlayer.transform.position);

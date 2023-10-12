@@ -4,18 +4,22 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
-    [Header("Movement tunable properties")] 
-    [SerializeField] private float topSpeed = 10f;
-    [SerializeField][Tooltip(" 0 for Dark Player" + "\n 1 for Light Player")] 
+    [Header("Movement tunable properties")] [SerializeField]
+    private float topSpeed = 10f;
+
+    [SerializeField] private float distanceThreshold = 1000f;
+
+    [SerializeField] [Tooltip(" 0 for Dark Player" + "\n 1 for Light Player")]
     private int playerIndex;
 
-    [Range(0, 1)] public float moveSmoothTime = 0.25f; 
+    [Range(0, 1)] public float moveSmoothTime = 0.25f;
     [Range(0, 1)] public float turnSmoothTime = 0.3f;
-    
+
     protected CharacterController Controller;
     protected Animator _animator;
 
@@ -23,7 +27,7 @@ public class Movement : MonoBehaviour
     private Vector3 _moveDampVelocity;
     private Vector2 _moveVectors;
     private Vector3 _direction;
-    
+
     private float _turnSmoothVelocity;
     private float _ySpeed;
     public float _currentTopSpeed;
@@ -36,8 +40,8 @@ public class Movement : MonoBehaviour
         _moveVectors = Vector2.zero;
         SetTopSpeed();
     }
-    
-    public void SetMoveVector(Vector2 vec )  // getter from the inputManager for the input vector   
+
+    public void SetMoveVector(Vector2 vec) // getter from the inputManager for the input vector   
     {
         _moveVectors = new(vec.x, vec.y);
     }
@@ -59,39 +63,61 @@ public class Movement : MonoBehaviour
         _currentTopSpeed = speed;
     }
 
+    protected Vector3 CalculateNextPos(Movement movement)
+    {
+        Vector3 newPos = transform.position + _direction;
+        return newPos;
+    }
+
+    protected bool CheckDistance(Vector3 otherPlayer)
+    {
+        Vector3 newPos = CalculateNextPos(this);
+        float dist = Vector3.Distance(newPos, otherPlayer);
+        Debug.Log(dist);
+
+        if (dist >= distanceThreshold)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     protected void SetTopSpeed()
     {
         _currentTopSpeed = topSpeed;
     }
-    
-    protected void Move()
+
+    protected void Move(Vector3 otherPlayer)
     {
         _direction = new Vector3(_moveVectors.x, 0, _moveVectors.y).normalized; //!
         if (_direction.magnitude >= 0.1f) //!
         {
+            float targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg;
+
+            float angle = Mathf.SmoothDampAngle(
+                transform.eulerAngles.y,
+                targetAngle,
+                ref _turnSmoothVelocity,
+                turnSmoothTime);
+
+            transform.rotation = Quaternion.Euler(0, angle, 0f);
+
+            if (!CheckDistance(otherPlayer)) { return; }
+
             _currentMoveVelocity = Vector3.SmoothDamp(
-                _currentMoveVelocity, 
-                _direction * _currentTopSpeed, 
+                _currentMoveVelocity,
+                _direction * _currentTopSpeed,
                 ref _moveDampVelocity,
                 moveSmoothTime);
-            
-            float targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg;
-            
-            float angle = Mathf.SmoothDampAngle(
-                transform.eulerAngles.y, 
-                targetAngle, ref 
-                _turnSmoothVelocity,
-                turnSmoothTime);
-            
-            transform.rotation = Quaternion.Euler(0, angle, 0f);
         }
         else
         {
             _currentMoveVelocity = Vector3.zero;
         }
+
         _currentMoveVelocity.y = _ySpeed; //!
         Controller.Move(_currentMoveVelocity * Time.deltaTime); // !
         _animator.SetFloat(CurrentSpeed, _direction.magnitude);
-        
     }
 }

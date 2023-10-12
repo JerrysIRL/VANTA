@@ -9,8 +9,15 @@ using Vector3 = UnityEngine.Vector3;
 public class LightMovement : Movement
 {
     [SerializeField] private float gravity = -2f;
+    private GameObject _otherPlayer;
     private float _ySpeedLight;
     private bool _moving;
+
+    private void Awake()
+    {
+        _otherPlayer = FindObjectOfType<DarkMovement>().gameObject;
+        Debug.Log(_otherPlayer.transform);
+    }
 
     void Update()
     {
@@ -24,7 +31,7 @@ public class LightMovement : Movement
         }
 
         SetYSpeed(_ySpeedLight);
-        Move();
+        Move(_otherPlayer.transform.position);
         SetAudioBool();
     }
 

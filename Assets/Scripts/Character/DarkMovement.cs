@@ -13,7 +13,7 @@ public class DarkMovement : Movement
     [SerializeField] private float gravity = -5f;
     [SerializeField] private float inAirTopSpeed;
     [SerializeField] private LayerMask _groundCheckIgnore;
-
+    private GameObject _otherPlayer;
     [SerializeField, Tooltip("Radius for tiny sphere at characters feet.")]
     private float groundSphereRadius = 0.12f;
     
@@ -23,22 +23,20 @@ public class DarkMovement : Movement
     private static readonly int JumpBool = Animator.StringToHash("JumpBool");
     private static readonly int JumpTrigger = Animator.StringToHash("JumpTrigger");
 
+    private void Awake()
+    {
+        _otherPlayer = FindObjectOfType<LightMovement>().gameObject;
+    }
 
     void Update()
     {
         ControlTopSpeed();
         ApplyGravity();
         SetYSpeed(_ySpeedDark);
-        Move();
+        Move(_otherPlayer.transform.position);
         SetAudioBool();
     }
-    
-    
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(groundCheckTransform.position, groundSphereRadius);
-    }
+   
 
     public void Jump()
     {

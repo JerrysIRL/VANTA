@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class MultipeTargetCamera : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class MultipeTargetCamera : MonoBehaviour
     [SerializeField] private float zoomLimiter = 30f;
     [SerializeField] Vector3 cameraOffset;
 
-    public List<Transform> targets = new List<Transform>();
+    public Transform[] targets = new Transform[2];
     private Vector3 _velocity;      // reference variable, just something SmoothDamp needs, dont remove
     private Camera _cam;
     
@@ -23,10 +25,10 @@ public class MultipeTargetCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        /*if (targets.Count == 0)     // if no players are in the game, return
+        if (targets.Length == 0)     // if no players are in the game, return
         {
             return;
-        }*/
+        }
         MoveCamera();
         Zoom();
     }
@@ -55,17 +57,34 @@ public class MultipeTargetCamera : MonoBehaviour
     private Bounds EncapsulateTargets()
     {
         var bounds = new Bounds(targets[0].position, Vector3.zero);
-        for (int i = 0; i < targets.Count; i++)
+        for (int i = 0; i < targets.Length; i++)
         {
             bounds.Encapsulate(targets[i].position);
         }
 
         return bounds;
     }
+    
+    
+    /*protected bool IsOutsideThreshold()
+    {
+        if (targets.Length < 2)
+        {
+            Debug.Log("Set references to players");
+            return false;
+        }
+        
+        
+        float dist = Vector3.Distance(targets[0].position, targets[1].position);
+        if (dist >= distanceThreshold)
+        {
+            
+        }
+    }*/
 
     private Vector3 GetCenterPosition()
     {
-        if (targets.Count == 1)
+        if (targets.Length == 1)
         {
             return targets[0].position;
         }

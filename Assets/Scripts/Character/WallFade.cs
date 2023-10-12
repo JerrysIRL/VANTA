@@ -6,12 +6,12 @@ using UnityEngine.Rendering;
 
 public class WallFade : MonoBehaviour
 {
-    [SerializeField] private float increaseOpac = 1f;
-    [SerializeField] private float decreaseOpac = 0.5f;
+    private float increaseOpac = 6f;
+    private float decreaseOpac = 4f;
     private MeshRenderer _mr;
     private bool _isObstructing;
     private float _level = 0f;
-    
+
 
     private void Awake()
     {
