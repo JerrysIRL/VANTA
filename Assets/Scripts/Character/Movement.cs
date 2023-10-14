@@ -9,8 +9,8 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
-    [Header("Movement tunable properties")] [SerializeField]
-    private float topSpeed = 10f;
+    [Header("Movement tunable properties")] 
+    [SerializeField] private float topSpeed = 10f;
 
     [SerializeField] private float distanceThreshold = 1000f;
 
@@ -19,7 +19,6 @@ public class Movement : MonoBehaviour
 
     [Range(0, 1)] public float moveSmoothTime = 0.25f;
     [Range(0, 1)] public float turnSmoothTime = 0.3f;
-    [SerializeField] private float acceleration = 10f;
 
     protected CharacterController Controller;
     protected Animator Animator;
@@ -62,7 +61,7 @@ public class Movement : MonoBehaviour
 
     protected void SetTopSpeed(float speed)
     {
-        _currentTopSpeed = _currentTopSpeed = Mathf.Lerp(_currentTopSpeed, speed, Time.deltaTime * acceleration);
+        _currentTopSpeed = _currentTopSpeed = Mathf.Lerp(_currentTopSpeed, speed, Time.deltaTime);
     }
 
     protected Vector3 CalculateNextPos(Movement movement)
@@ -86,15 +85,16 @@ public class Movement : MonoBehaviour
 
     protected void SetTopSpeed()
     {
-        _currentTopSpeed = Mathf.Lerp(_currentTopSpeed, topSpeed, Time.deltaTime * 10);
+        _currentTopSpeed = Mathf.Lerp(_currentTopSpeed, topSpeed, Time.deltaTime);
     }
 
     protected void Move(Vector3 otherPlayer)
     {
-        Vector3 input = new Vector3(_moveVectors.x, 0, _moveVectors.y);
-        Direction = input.normalized;
+        Vector3 clampedInput = Vector3.ClampMagnitude( new Vector3(_moveVectors.x, 0, _moveVectors.y), 1);
+        Direction = clampedInput.normalized;
+        
 
-        if (input.magnitude >= 0.1f)
+        if (clampedInput.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(Direction.x, Direction.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
@@ -105,7 +105,7 @@ public class Movement : MonoBehaviour
             return;
         }
 
-        _currentMoveVelocity = Vector3.SmoothDamp(_currentMoveVelocity, input * _currentTopSpeed, ref _moveDampVelocity, moveSmoothTime);
+        _currentMoveVelocity = Vector3.SmoothDamp(_currentMoveVelocity, clampedInput * _currentTopSpeed, ref _moveDampVelocity, moveSmoothTime);
         _currentMoveVelocity.y = _ySpeed;
         
         Controller.Move(_currentMoveVelocity * Time.deltaTime);

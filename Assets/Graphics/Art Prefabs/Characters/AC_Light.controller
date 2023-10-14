@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: CurrentSpeed
+    m_ConditionEvent: InputFloat
     m_EventTreshold: 0.2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5042755374887562837}
@@ -90,7 +90,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: CurrentSpeed
+    m_ConditionEvent: InputFloat
     m_EventTreshold: 0.2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5042755374887562837}
@@ -137,12 +137,12 @@ AnimatorController:
   m_Name: AC_Light
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: CurrentSpeed
+  - m_Name: InputFloat
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -194,8 +194,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: CurrentSpeed
-    m_EventTreshold: 0.2
+    m_ConditionEvent: InputFloat
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3466724701118414839}
   m_Solo: 0
@@ -207,7 +207,7 @@ AnimatorStateTransition:
   m_ExitTime: 0.9991065
   m_HasExitTime: 0
   m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &4658472070301932519

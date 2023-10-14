@@ -825,11 +825,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 4.297997
       objectReference: {fileID: 0}
-    - target: {fileID: 3427497051447061967, guid: b61c248f2a97ae249b80fff7502a2f5b,
-        type: 3}
-      propertyPath: distanceThreshold
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3811471219165957451, guid: b61c248f2a97ae249b80fff7502a2f5b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1073,7 +1068,6 @@ MonoBehaviour:
   playerIndex: 1
   moveSmoothTime: 0.25
   turnSmoothTime: 0.3
-  acceleration: 10
   _currentTopSpeed: 0
   gravity: -1
 --- !u!1 &657024881
@@ -1441,16 +1435,6 @@ PrefabInstance:
         type: 3}
       propertyPath: acceleration
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7653569194793333734, guid: ccbb5655eba66a7439195ab58a0effb1,
-        type: 3}
-      propertyPath: turnSmoothTime
-      value: 0.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 7653569194793333734, guid: ccbb5655eba66a7439195ab58a0effb1,
-        type: 3}
-      propertyPath: distanceThreshold
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
