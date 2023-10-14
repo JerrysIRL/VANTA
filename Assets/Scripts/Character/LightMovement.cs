@@ -16,7 +16,6 @@ public class LightMovement : Movement
     private void Awake()
     {
         _otherPlayer = FindObjectOfType<DarkMovement>().gameObject;
-        Debug.Log(_otherPlayer.transform);
     }
 
     void Update()
@@ -29,7 +28,7 @@ public class LightMovement : Movement
         {
             _ySpeedLight = 0;
         }
-
+        SetTopSpeed();
         SetYSpeed(_ySpeedLight);
         Move(_otherPlayer.transform.position);
         SetAudioBool();
@@ -46,5 +45,6 @@ public class LightMovement : Movement
         {
             _moving = false;
         }
+        Animator.SetFloat("InputFloat", Direction.magnitude);
     }
 }

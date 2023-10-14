@@ -42,7 +42,7 @@ public class DarkMovement : Movement
     {
         if (Controller.isGrounded)
         {
-            _animator.SetTrigger(JumpTrigger);
+            Animator.SetTrigger(JumpTrigger);
             _ySpeedDark = jumpHeight;
         }
         
@@ -57,14 +57,15 @@ public class DarkMovement : Movement
     {
         if (GroundCheck())
         {
-            _animator.SetBool(JumpBool, false);
+            Animator.SetBool(JumpBool, false);
             SetTopSpeed();
         }
         else
         {
             SetTopSpeed(inAirTopSpeed);
-            _animator.SetBool(JumpBool, true);
+            Animator.SetBool(JumpBool, true);
         }
+        Animator.SetFloat("CurrentSpeed", Controller.velocity.magnitude);
     }
 
     private void ApplyGravity()

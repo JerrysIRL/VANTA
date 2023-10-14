@@ -31,7 +31,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""d984faa5-1433-4626-838d-14d8de9fb293"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -134,7 +134,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""id"": ""1a7dd99e-4584-49c2-81bc-7cd7eb49339e"",
                     ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone(min=0.15,max=1)"",
+                    ""processors"": ""StickDeadzone(min=0.1,max=1)"",
                     ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": true,

@@ -19,14 +19,16 @@ public class Movement : MonoBehaviour
 
     [Range(0, 1)] public float moveSmoothTime = 0.25f;
     [Range(0, 1)] public float turnSmoothTime = 0.3f;
+    [SerializeField] private float acceleration = 10f;
 
     protected CharacterController Controller;
-    protected Animator _animator;
-
-    private Vector3 _currentMoveVelocity;
+    protected Animator Animator;
+    protected Vector3 Direction;
+    
+    private Vector3 _currentMoveVelocity;   
     private Vector3 _moveDampVelocity;
     private Vector2 _moveVectors;
-    private Vector3 _direction;
+    
 
     private float _turnSmoothVelocity;
     private float _ySpeed;
@@ -35,7 +37,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        _animator = GetComponentInChildren<Animator>();
+        Animator = GetComponentInChildren<Animator>();
         Controller = GetComponent<CharacterController>();
         _moveVectors = Vector2.zero;
         SetTopSpeed();
@@ -60,12 +62,12 @@ public class Movement : MonoBehaviour
 
     protected void SetTopSpeed(float speed)
     {
-        _currentTopSpeed = speed;
+        _currentTopSpeed = _currentTopSpeed = Mathf.Lerp(_currentTopSpeed, speed, Time.deltaTime * acceleration);
     }
 
     protected Vector3 CalculateNextPos(Movement movement)
     {
-        Vector3 newPos = transform.position + _direction;
+        Vector3 newPos = transform.position + Direction;
         return newPos;
     }
 
@@ -73,7 +75,6 @@ public class Movement : MonoBehaviour
     {
         Vector3 newPos = CalculateNextPos(this);
         float dist = Vector3.Distance(newPos, otherPlayer);
-        Debug.Log(dist);
 
         if (dist >= distanceThreshold)
         {
@@ -85,39 +86,28 @@ public class Movement : MonoBehaviour
 
     protected void SetTopSpeed()
     {
-        _currentTopSpeed = topSpeed;
+        _currentTopSpeed = Mathf.Lerp(_currentTopSpeed, topSpeed, Time.deltaTime * 10);
     }
 
     protected void Move(Vector3 otherPlayer)
     {
-        _direction = new Vector3(_moveVectors.x, 0, _moveVectors.y).normalized; //!
-        if (_direction.magnitude >= 0.1f) //!
+        Vector3 input = new Vector3(_moveVectors.x, 0, _moveVectors.y);
+        Direction = input.normalized;
+
+        if (input.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg;
-
-            float angle = Mathf.SmoothDampAngle(
-                transform.eulerAngles.y,
-                targetAngle,
-                ref _turnSmoothVelocity,
-                turnSmoothTime);
-
+            float targetAngle = Mathf.Atan2(Direction.x, Direction.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0, angle, 0f);
-
-            if (!CheckDistance(otherPlayer)) { return; }
-
-            _currentMoveVelocity = Vector3.SmoothDamp(
-                _currentMoveVelocity,
-                _direction * _currentTopSpeed,
-                ref _moveDampVelocity,
-                moveSmoothTime);
         }
-        else
+        if (!CheckDistance(otherPlayer))
         {
-            _currentMoveVelocity = Vector3.zero;
+            return;
         }
 
-        _currentMoveVelocity.y = _ySpeed; //!
-        Controller.Move(_currentMoveVelocity * Time.deltaTime); // !
-        _animator.SetFloat(CurrentSpeed, _direction.magnitude);
+        _currentMoveVelocity = Vector3.SmoothDamp(_currentMoveVelocity, input * _currentTopSpeed, ref _moveDampVelocity, moveSmoothTime);
+        _currentMoveVelocity.y = _ySpeed;
+        
+        Controller.Move(_currentMoveVelocity * Time.deltaTime);
     }
 }

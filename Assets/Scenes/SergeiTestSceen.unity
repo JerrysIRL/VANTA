@@ -240,7 +240,7 @@ MonoBehaviour:
         m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 5143385186003443902, guid: 8eb649d67ad21314abe83cb6b1f0d520,
+  m_PlayerPrefab: {fileID: 2588787010037693675, guid: 0e6a5cbdc7214c8459b103f5e8b86dea,
     type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
@@ -1073,6 +1073,7 @@ MonoBehaviour:
   playerIndex: 1
   moveSmoothTime: 0.25
   turnSmoothTime: 0.3
+  acceleration: 10
   _currentTopSpeed: 0
   gravity: -1
 --- !u!1 &657024881
@@ -1435,6 +1436,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShadowPlaceholder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653569194793333734, guid: ccbb5655eba66a7439195ab58a0effb1,
+        type: 3}
+      propertyPath: acceleration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653569194793333734, guid: ccbb5655eba66a7439195ab58a0effb1,
+        type: 3}
+      propertyPath: turnSmoothTime
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 7653569194793333734, guid: ccbb5655eba66a7439195ab58a0effb1,
         type: 3}
