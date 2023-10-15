@@ -1,21 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
+
 
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
     [Header("Movement tunable properties")] 
     [SerializeField] private float topSpeed = 10f;
-
-    [SerializeField] private float distanceThreshold = 1000f;
-
-    [SerializeField] [Tooltip(" 0 for Dark Player" + "\n 1 for Light Player")]
-    private int playerIndex;
+    [SerializeField] private float distanceThreshold = 25f;
+    
+    [SerializeField] private int playerIndex;
 
     [Range(0, 1)] public float moveSmoothTime = 0.25f;
     [Range(0, 1)] public float turnSmoothTime = 0.3f;
@@ -26,28 +19,27 @@ public class Movement : MonoBehaviour
     
     private Vector3 _currentMoveVelocity;   
     private Vector3 _moveDampVelocity;
-    private Vector2 _moveVectors;
+    private Vector3 _moveVectors;
     
 
     private float _turnSmoothVelocity;
     private float _ySpeed;
-    public float _currentTopSpeed;
-    private static readonly int CurrentSpeed = Animator.StringToHash("CurrentSpeed");
+    private float _currentTopSpeed;
 
     void Start()
     {
         Animator = GetComponentInChildren<Animator>();
         Controller = GetComponent<CharacterController>();
-        _moveVectors = Vector2.zero;
+        _moveVectors = Vector3.zero;
         SetTopSpeed();
     }
 
-    public void SetMoveVector(Vector2 vec) // getter from the inputManager for the input vector   
+    public void SetMoveVector(Vector2 vec) 
     {
-        _moveVectors = new(vec.x, vec.y);
+        _moveVectors = new Vector3(vec.x,0, vec.y);
     }
 
-    public Vector2 GetMoveVector() => _moveVectors;
+    protected Vector3 GetMoveVector() => _moveVectors;
 
     public int GetPlayerIndex()
     {
@@ -59,48 +51,55 @@ public class Movement : MonoBehaviour
         _ySpeed = ySpeed;
     }
 
-    protected void SetTopSpeed(float speed)
+    protected void SetNewTopSpeed(float speed)
     {
-        _currentTopSpeed = _currentTopSpeed = Mathf.Lerp(_currentTopSpeed, speed, Time.deltaTime);
+        _currentTopSpeed = Mathf.Lerp(_currentTopSpeed, speed, Time.deltaTime * 10);
     }
 
-    protected Vector3 CalculateNextPos(Movement movement)
+    protected Vector3 CalculateNextPos()
     {
         Vector3 newPos = transform.position + Direction;
         return newPos;
     }
 
+    /// <summary>
+    /// Checks the distance between players is withing the threshold.
+    /// </summary>
+    /// <returns> 'True' if distance is greater or equals the threshold</returns>
     protected bool CheckDistance(Vector3 otherPlayer)
     {
-        Vector3 newPos = CalculateNextPos(this);
+        Vector3 newPos = CalculateNextPos();
         float dist = Vector3.Distance(newPos, otherPlayer);
 
         if (dist >= distanceThreshold)
         {
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
 
+    /// <summary>
+    /// Sets top speed to initial value
+    /// </summary>
+    /// <returns></returns>
     protected void SetTopSpeed()
     {
-        _currentTopSpeed = Mathf.Lerp(_currentTopSpeed, topSpeed, Time.deltaTime);
+        _currentTopSpeed = Mathf.Lerp(_currentTopSpeed, topSpeed, Time.deltaTime * 10);
     }
 
     protected void Move(Vector3 otherPlayer)
     {
-        Vector3 clampedInput = Vector3.ClampMagnitude( new Vector3(_moveVectors.x, 0, _moveVectors.y), 1);
+        Vector3 clampedInput = Vector3.ClampMagnitude(_moveVectors, 1);
         Direction = clampedInput.normalized;
         
-
         if (clampedInput.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(Direction.x, Direction.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0, angle, 0f);
         }
-        if (!CheckDistance(otherPlayer))
+        if (CheckDistance(otherPlayer))
         {
             return;
         }

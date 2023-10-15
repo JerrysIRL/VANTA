@@ -117,10 +117,9 @@ MonoBehaviour:
   playerIndex: 0
   moveSmoothTime: 0.25
   turnSmoothTime: 0.23
-  _currentTopSpeed: 0
   groundCheckTransform: {fileID: 2326895537697876641}
-  jumpHeight: 3
-  gravity: -25
+  jumpHeight: 5
+  gravity: -35
   inAirTopSpeed: 2.5
   _groundCheckIgnore:
     serializedVersion: 2

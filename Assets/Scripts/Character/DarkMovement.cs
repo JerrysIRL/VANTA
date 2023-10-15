@@ -1,7 +1,3 @@
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DarkMovement : Movement
@@ -47,22 +43,21 @@ public class DarkMovement : Movement
         }
         
     }
-
-    private bool GroundCheck() => Physics.OverlapSphere(groundCheckTransform.position, groundSphereRadius, _groundCheckIgnore).Length > 1;
+    
     
     public bool GetMovingBool() => _moving;
 
 
     private void ControlTopSpeed()
     {
-        if (GroundCheck())
+        if(Controller.isGrounded)
         {
             Animator.SetBool(JumpBool, false);
             SetTopSpeed();
         }
         else
         {
-            SetTopSpeed(inAirTopSpeed);
+            SetNewTopSpeed(inAirTopSpeed);
             Animator.SetBool(JumpBool, true);
         }
         Animator.SetFloat("CurrentSpeed", Controller.velocity.magnitude);
