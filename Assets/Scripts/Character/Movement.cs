@@ -21,7 +21,6 @@ public class Movement : MonoBehaviour
     private Vector3 _moveDampVelocity;
     private Vector3 _moveVectors;
     
-
     private float _turnSmoothVelocity;
     private float _ySpeed;
     private float _currentTopSpeed;
@@ -75,7 +74,6 @@ public class Movement : MonoBehaviour
         {
             return true;
         }
-
         return false;
     }
 
