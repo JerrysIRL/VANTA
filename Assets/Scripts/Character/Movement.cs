@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(CharacterController))]
-public class Movement : MonoBehaviour
+public abstract class Movement : MonoBehaviour
 {
     [Header("Movement tunable properties")] 
     [SerializeField] private float topSpeed = 10f;

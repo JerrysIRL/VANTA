@@ -2,16 +2,11 @@ using UnityEngine;
 
 public class DarkMovement : Movement
 {
-    [Header("Dark properties")] [SerializeField]
-    private Transform groundCheckTransform;
-
+    [Header("Dark properties")]
     [SerializeField] private float jumpHeight = 10f;
     [SerializeField] private float gravity = -5f;
     [SerializeField] private float inAirTopSpeed;
-    [SerializeField] private LayerMask _groundCheckIgnore;
     private GameObject _otherPlayer;
-    [SerializeField, Tooltip("Radius for tiny sphere at characters feet.")]
-    private float groundSphereRadius = 0.12f;
     
     private bool _moving;
     private float _ySpeedDark = 0;
@@ -43,7 +38,6 @@ public class DarkMovement : Movement
         }
         
     }
-    
     
     public bool GetMovingBool() => _moving;
 
